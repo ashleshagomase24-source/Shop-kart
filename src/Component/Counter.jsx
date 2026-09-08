@@ -1,23 +1,21 @@
-
 import { useEffect, useState } from "react";
 
+const Counter = () => {
+  const [count, setCount] = useState(0);
 
-const Counter=()=> {
-    const [count, setCount] = useState(0);
-
-    useEffect(()=> {
+  useEffect(() => {
         console.log(count);
-    }, [count])
+  }, [count]);
 
+  return (
+    <div>
+      <h1>Counter App</h1>
+      <h3>count: {count}</h3>
+      <button onClick={() => setCount((currentCount) => currentCount + 1)}>
+        Click Me
+      </button>
+    </div>
+  );
+};
 
-    return (
-        <div>
-            <h1>Counter App</h1>
-            <h3>count:{count}</h3>
-            
-<button onClick={() => setCount((currentCount) => currentCount + 1)}>Click Me</button>
-
-        </div>
-    )
-}
 export default Counter;

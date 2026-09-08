@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { ThemeContext } from "../Context/ThemeContext";
+import ThemeContext from "../Context/ThemeContext.js";
 import "./Navbar.css";
 
 const Navbar = () => {

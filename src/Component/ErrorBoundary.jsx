@@ -1,54 +1,60 @@
-import React, { useState } from "react";
+import React from "react";
 
-function UserProfile() {
-  const [hasError, setHasError] = useState(false);
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
 
-  if (hasError) {
-    throw new Error("Unable to load user profile!");
+    this.state = {
+      hasError: false,
+      error: null,
+    };
   }
 
-  return (
-    <div style={styles.card}>
-      <img
-        src="https://i.pravatar.cc/150?img=12"
-        alt="User"
-        style={styles.image}
-      />
+  // Updates state when an error occurs
+  static getDerivedStateFromError(error) {
+    return {
+      hasError: true,
+      error: error,
+    };
+  }
 
-      <h2>Rahul Naitam</h2>
+  // Used for logging the error
+  componentDidCatch(error, errorInfo) {
+    console.log("Error caught by ErrorBoundary:");
+    console.log(error);
+    console.log(errorInfo);
+  }
 
-      <p>Email: rahul@example.com</p>
 
-      <p>Role: Web Developer</p>
 
-      <button onClick={() => setHasError(true)}>
-        Simulate Error
-      </button>
-    </div>
-  );
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div style={styles.errorBox}>
+          <h2>⚠️ Something went wrong!</h2>
+
+          <p>
+            {this.state.error?.message}
+          </p>
+
+        </div>
+      );
+    }
+
+    return this.props.children;
+  }
 }
 
 const styles = {
-  card: {
-    width: "350px",
+  errorBox: {
+    width: "400px",
     margin: "50px auto",
-    padding: "25px",
+    padding: "30px",
     textAlign: "center",
-    border: "1px solid #ddd",
+    border: "1px solid red",
     borderRadius: "10px",
-    boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
-  },
-
-  image: {
-    width: "120px",
-    height: "120px",
-    borderRadius: "50%",
-  },
-
-  button: {
-    padding: "10px 20px",
-    cursor: "pointer",
+    backgroundColor: "#fff5f5",
   },
 };
 
-export default UserProfile;
+export default ErrorBoundary;
