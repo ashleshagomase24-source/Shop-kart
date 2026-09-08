@@ -1,0 +1,87 @@
+:root {
+  --text: #687067;
+  --text-h: #1e2c25;
+  --bg: #f7f5ef;
+  --surface: #fffdf8;
+  --soft: #edf1e9;
+  --border: #dfe6dc;
+  --accent: #b45309;
+  --accent-dark: #26352d;
+  --accent-soft: #f7e8cf;
+  --shadow: 0 18px 50px rgba(38, 59, 48, 0.1);
+  --sans: 'Trebuchet MS', 'Segoe UI', sans-serif;
+  --heading: Georgia, 'Times New Roman', serif;
+  font: 16px/1.5 var(--sans);
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+#root {
+  width: 100%;
+  min-height: 100svh;
+  margin: 0;
+  text-align: left;
+}
+
+button,
+a,
+input,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--text-h);
+  font-family: var(--heading);
+  font-weight: 500;
+}
+
+img {
+  max-width: 100%;
+}
+
+.app-shell {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 200ms ease, color 200ms ease;
+}
+
+.app-shell--dark {
+  --text: #c8d2c8;
+  --text-h: #f2f4e9;
+  --bg: #18221c;
+  --surface: #243127;
+  --soft: #2d3b30;
+  --border: #3c4b3e;
+  --accent-soft: #493b28;
+  --accent-dark: #dfe8dc;
+}
+
+.app-content {
+  flex: 1;
+}
