@@ -1,6 +1,7 @@
 import "./App.css";
 import { useContext } from "react";
 import Navbar from "./Component/Navbar";
+import Footer from "./Component/Footer";
 import { Outlet } from "react-router-dom";
 import {ThemeContext} from "./Context/ThemeContext";
 
@@ -15,6 +16,7 @@ function App() {
       <main className="app-content">
         <Outlet />
       </main>
+      <Footer />
     </div>
   );
 }
