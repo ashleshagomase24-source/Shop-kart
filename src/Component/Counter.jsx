@@ -2,25 +2,22 @@
 import { useEffect, useState } from "react";
 
 
-const Counter = () => {
+const Counter=()=> {
     const [count, setCount] = useState(0);
 
-
-    useEffect(() => {
+    useEffect(()=> {
         console.log(count);
-    }, []);
+    }, [count])
 
 
     return (
         <div>
             <h1>Counter App</h1>
-            <h3>Count:{count}</h3>
-            <button onClick={() => setCount(count + 1)} style={{ background: "lightgreen" }}>Incriment</button>
-            <button onClick={() => setCount(count > 0 ? count - 1 : 0)} style={{ background: "lightgreen" }}>Decriment</button>
-
-
+            <h3>count:{count}</h3>
+            
+<button onClick={() => setCount((currentCount) => currentCount + 1)}>Click Me</button>
 
         </div>
-    );
-};
+    )
+}
 export default Counter;
